@@ -1,0 +1,4 @@
+train/*.jpg
+test/*.jpg
+train.csv
+sample_submission.csv
