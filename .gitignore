@@ -1,3 +1,4 @@
+train/*/*.jpg
 train/*.jpg
 test/*.jpg
 train.csv
