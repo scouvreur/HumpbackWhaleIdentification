@@ -20,6 +20,15 @@ And to create the `labels.csv` file:
 sh labels.sh
 ```
 
+And for submissions using the Kaggle API:
+
+```{bash}
+kaggle competitions submit -c humpback-whale-identification -f data/submission.csv -m "Message"
+```
+
 ## Fastai model
 
 The fastai model starts with loading the `csv` Imagebunch
+
+
+
