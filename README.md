@@ -21,3 +21,5 @@ sh labels.sh
 ```
 
 ## Fastai model
+
+The fastai model starts with loading the `csv` Imagebunch
