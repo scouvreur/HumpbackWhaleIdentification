@@ -35,7 +35,7 @@ def list_val_dirs(n_samples, train_path):
     Raises:
         Exception: if n_samples is negative.
     """
-    if n_samples <= 5:
+    if n_samples < 5:
         raise Exception('Please enter a number of samples > 5')
     train_dirs = os.listdir(train_path)
     val_dirs = []
