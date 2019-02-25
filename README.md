@@ -20,6 +20,12 @@ And to create the `labels.csv` file:
 sh labels.sh
 ```
 
+To create the validation directory:
+
+```{bash}
+python3 make_validation_dir.py
+```
+
 And for submissions using the Kaggle API:
 
 ```{bash}
@@ -29,6 +35,3 @@ kaggle competitions submit -c humpback-whale-identification -f data/submission.c
 ## Fastai model
 
 The fastai model starts with loading the `csv` Imagebunch
-
-
-
