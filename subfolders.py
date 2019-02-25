@@ -1,3 +1,16 @@
+"""
+=======================================================
+
+ This program creates a CIFAR-like directory structure
+ for the humpback whales in the training dataset.
+ Run this code at the beginning of the pre-processing
+ pipeline.
+
+=======================================================
+"""
+
+print(__doc__)
+
 from shutil import copyfile
 
 import os
