@@ -34,4 +34,6 @@ kaggle competitions submit -c humpback-whale-identification -f data/submission.c
 
 ## Fastai model
 
-The fastai model starts with loading the `csv` Imagebunch
+The fastai model starts with loading the `from_folder` Imagebunch, where the validation set is created by the `make_validation_dir.py` script.
+
+The model is based on transfer learning on a pre-trained ResNet50.
