@@ -2,20 +2,14 @@
 
 kaggle competitions download -c humpback-whale-identification
 
-mkdir data
-mkdir data/train/
-mkdir data/test/
+mkdir data/
 
-mv sample_submission.csv data/
-mv train.csv data/
+mv *.csv data/
 
 unzip_images() {
 	echo $1
-	mv $1.zip data/$1/$1.zip
-	cd data/$1/
-	unzip $1.zip
-	rm $1.zip
-	cd ../../
+	echo mkdir data/$1 && unzip $1.zip -d data/$1
+	echo rm $1.zip
 }
 
 unzip_images train
