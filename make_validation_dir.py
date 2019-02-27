@@ -38,6 +38,12 @@ def list_val_dirs(n_samples, train_path):
     if n_samples < 5:
         raise Exception('Please enter a number of samples > 5')
     train_dirs = os.listdir(train_path)
+
+    try:
+        train_dirs.remove('.DS_Store')
+    except ValueError:
+        print("No DS_Store")
+
     val_dirs = []
     for whale in train_dirs:
         if len(os.listdir(train_path + whale)) > int(n_samples):
