@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd train/
+cd data/train/
 
 labels="../labels.csv"
 rm $labels
