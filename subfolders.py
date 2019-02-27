@@ -11,12 +11,10 @@
 
 print(__doc__)
 
-from shutil import copyfile
-
 import os
 import pandas as pd
 
-train = pd.read_csv("train.csv")
+train = pd.read_csv("data/train.csv")
 whale_id_groupby = train.groupby('Id').Image.nunique()
 
 def create_dir_struct(groupby):
@@ -25,13 +23,10 @@ def create_dir_struct(groupby):
     using labels in train.csv and creates
     the subdirectory structure as in CIFAR
     """
-    os.mkdir("train2")
-    os.chdir("train2")
-    # Create directory structure
     for whale_id in groupby.index:
         print(whale_id)
         try:
-            os.mkdir(whale_id)
+            os.mkdir("data/train/" + whale_id)
         except FileExistsError:
             print("File already exists")
 
@@ -42,11 +37,11 @@ def mv_imgs_to_dirs(train_df):
     subdirectory
     """
     for index, row in train_df.iterrows():
-        src = "../train/" + row["Image"]
-        dst = row["Id"] + "/" + row["Image"]
+        src = "data/train/" + row["Image"]
+        dst = "data/train/" + row["Id"] + "/" + row["Image"]
         print("source", src)
         print("dest", dst)
-        copyfile(src, dst)
+        os.rename(src, dst)
 
 create_dir_struct(whale_id_groupby)
 mv_imgs_to_dirs(train)
