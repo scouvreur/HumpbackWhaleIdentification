@@ -32,6 +32,15 @@ And for submissions using the Kaggle API:
 kaggle competitions submit -c humpback-whale-identification -f data/submission.csv -m "Message"
 ```
 
+## Data
+
+Check archive was correctly downloaded using:
+
+```{bash}
+md5sum data_MASKED_256.tar.gz
+>>> 4ddf5eb697a18a61476f34820d589c21 data_MASKED_256.tar.gz
+```
+
 ## Fastai model
 
 The fastai model starts with loading the `from_folder` Imagebunch, where the validation set is created by the `make_validation_dir.py` script.
