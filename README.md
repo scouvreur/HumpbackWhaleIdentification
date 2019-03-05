@@ -38,11 +38,39 @@ tar -xzvf data_MASKED_256.tar.gz
 ![0a810e2a1](assets/0a810e2a1.jpg) | ![0a810e2a1](assets/0a810e2a1_256.jpg)
 ![0c2d0b8b8](assets/0c2d0b8b8.jpg) | ![0c2d0b8b8](assets/0c2d0b8b8_256.jpg)
 
-The fastai model starts with loading the `from_folder` Imagebunch, where the validation set is created by the `make_validation_dir.py` script.
+The fastai model starts with loading the `from_folder` Imagebunch, where the validation set is created by the `make_validation_dir.py` script (running `sh setup.sh` this is automatically executed).
 
 The model is based on transfer learning on a pre-trained ResNet50. The training process is specified in the `model.ipynb` [notebook](model.ipynb).
 
 To import the pre-trained model, you can use:
+
+```{bash}
+cat stage-1-resnet50.pth.tar.gz.part* > stage-1-resnet50.pth.tar.gz
+
+cat stage-2-resnet50.pth.tar.gz.part* > stage-2-resnet50.pth.tar.gz
+```
+
+```{bash}
+md5sum stage-1-resnet50.pth.tar.gz
+>>> 1fe5ccb1050a2082f461c076051311fa  stage-1-resnet50.pth.tar.gz
+
+md5sum stage-2-resnet50.pth.tar.gz 
+>>> 41e93c08e941056cc59354fa89563882  stage-2-resnet50.pth.tar.gz
+```
+
+```{bash}
+md5sum stage-1-resnet50.pth.tar.gz
+>>> 1fe5ccb1050a2082f461c076051311fa  stage-1-resnet50.pth.tar.gz
+
+md5sum stage-2-resnet50.pth.tar.gz 
+>>> 41e93c08e941056cc59354fa89563882  stage-2-resnet50.pth.tar.gz
+```
+
+```{bash}
+for TAR in *.tar.gz; do tar -xzvf $TAR; done
+```
+
+and then
 
 ```{python}
 learn = create_cnn(data, models.resnet50, metrics=[accuracy, map5])
