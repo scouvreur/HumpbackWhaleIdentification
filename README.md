@@ -20,7 +20,7 @@ kaggle competitions submit -c humpback-whale-identification -f submission.csv -m
 
 ### Pre-processed Data
 
-To use pre-processed data, you can Check archive was correctly downloaded using:
+To use pre-processed data, you can check archive was correctly downloaded using:
 
 ```{bash}
 md5sum data_MASKED_256.tar.gz
