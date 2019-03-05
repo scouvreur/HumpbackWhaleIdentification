@@ -59,14 +59,6 @@ md5sum stage-2-resnet50.pth.tar.gz
 ```
 
 ```{bash}
-md5sum stage-1-resnet50.pth.tar.gz
->>> 1fe5ccb1050a2082f461c076051311fa  stage-1-resnet50.pth.tar.gz
-
-md5sum stage-2-resnet50.pth.tar.gz 
->>> 41e93c08e941056cc59354fa89563882  stage-2-resnet50.pth.tar.gz
-```
-
-```{bash}
 for TAR in *.tar.gz; do tar -xzvf $TAR; done
 ```
 
