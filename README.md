@@ -6,7 +6,7 @@
 
 The prepare the environment, first do (make sure your Kaggle API key is in `~/.kaggle/kaggle.json`), and then do
 
-```{bash}
+```bash
 sh setup.sh
 ```
 
@@ -14,7 +14,7 @@ This script will a download and extract the data, generate a CIFAR-like director
 
 For submissions using the Kaggle API, use:
 
-```{bash}
+```bash
 kaggle competitions submit -c humpback-whale-identification -f submission.csv -m "Message"
 ```
 
@@ -22,7 +22,7 @@ kaggle competitions submit -c humpback-whale-identification -f submission.csv -m
 
 To use pre-processed data, you can check archive was correctly downloaded using:
 
-```{bash}
+```bash
 cd data/
 cat data_MASKED_256.tar.gz.part* > data_MASKED_256.tar.gz
 md5sum data_MASKED_256.tar.gz
@@ -44,13 +44,13 @@ The model is based on transfer learning on a pre-trained ResNet50. The training 
 
 To import the pre-trained model, you can use:
 
-```{bash}
+```bash
 cat stage-1-resnet50.pth.tar.gz.part* > stage-1-resnet50.pth.tar.gz
 
 cat stage-2-resnet50.pth.tar.gz.part* > stage-2-resnet50.pth.tar.gz
 ```
 
-```{bash}
+```bash
 md5sum stage-1-resnet50.pth.tar.gz
 >>> 1fe5ccb1050a2082f461c076051311fa  stage-1-resnet50.pth.tar.gz
 
@@ -58,13 +58,13 @@ md5sum stage-2-resnet50.pth.tar.gz
 >>> 41e93c08e941056cc59354fa89563882  stage-2-resnet50.pth.tar.gz
 ```
 
-```{bash}
+```bash
 for TAR in *.tar.gz; do tar -xzvf $TAR; done
 ```
 
 and then
 
-```{python}
+```python
 learn = create_cnn(data, models.resnet50, metrics=[accuracy, map5])
 learn.load('stage-1-resnet50')
 ```
