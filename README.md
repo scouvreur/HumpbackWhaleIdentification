@@ -21,6 +21,11 @@ kaggle competitions submit -c humpback-whale-identification -f submission.csv -m
 ### Pre-processed Data
 
 Credits for this masking goes to [Branden Murray](https://www.kaggle.com/c/humpback-whale-identification/discussion/78453).
+The images were then squared to 256x256 using the following [script](scripts/square_images.sh):
+
+```bash
+convert <IMG> -resize 256x256! <IMG>
+```
 
 To use pre-processed data, you can check archive was correctly downloaded using:
 
